@@ -62,6 +62,7 @@ module "datadisk" {
 
 module "loadbalancer" {
     source = "./modules/loadbalancer"
+    lb_name = "group-9-assignment1-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     public_ip_address_ids = module.vmlinux.linux_Public_IP
