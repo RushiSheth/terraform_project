@@ -2,7 +2,11 @@ variable "lb_name" {
   
 }
 
-variable "nic_ids" {
+variable "nic_id_1" {
+  
+}
+
+variable "nic_id_2" {
   
 }
 

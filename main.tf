@@ -69,7 +69,8 @@ module "loadbalancer" {
     lb_name = "group-9-assignment1-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
-    nic_ids = module.vmlinux.nic_ids
+    nic_id_1 = module.vmlinux.nic_id_1
+    nic_id_2 = module.vmlinux.nic_id_2
     tags = local.common_tags
     depends_on = [
         module.rgroup
