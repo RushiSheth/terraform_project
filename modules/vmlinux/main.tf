@@ -70,3 +70,4 @@ resource "azurerm_public_ip" "linux_pip" {
     
   }
 }
+

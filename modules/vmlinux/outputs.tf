@@ -18,7 +18,7 @@ output "linux_Public_IP" {
   value = [azurerm_linux_virtual_machine.linux_vm[*].public_ip_address]
 }
 
-output "Ip_lb" {
-    value = [azurerm_public_ip.linux_pip[*].id]
+output "nic_ids" {
+  value = [azurerm_network_interface.linux_nic[*].id]
 }
 

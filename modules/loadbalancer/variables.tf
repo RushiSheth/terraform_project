@@ -2,7 +2,7 @@ variable "lb_name" {
   
 }
 
-variable "public_ip_address_ids" {
+variable "nic_ids" {
   
 }
 
