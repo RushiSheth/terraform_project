@@ -34,7 +34,7 @@ resource "azurerm_lb_rule" "assignment1_lb_rule" {
 
 resource "azurerm_lb_probe" "assignment1_lb_probe" {
   resource_group_name = var.rg
-  loadbalancer_id     = azurerm_lb.assignment1.id
+  loadbalancer_id     = azurerm_lb.assignment1_lb.id
   name                = "ssh-running-probe"
   port                = 22
 }
@@ -42,11 +42,11 @@ resource "azurerm_lb_probe" "assignment1_lb_probe" {
 resource "azurerm_network_interface_backend_address_pool_association" "assignment1_add_pool_asso1" {
   network_interface_id    = var.nic_ids[0]
   ip_configuration_name   = "testconfiguration1"
-  backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1.id
+  backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1_add_pool.id
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "assignment1_add_pool_asso2" {
   network_interface_id    = var.nic_ids[1]
   ip_configuration_name   = "testconfiguration1"
-  backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1.id
+  backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1_add_pool.id
 }
