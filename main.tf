@@ -80,8 +80,8 @@ module "common" {
     source = "./modules/common"
     recovery_service_vault_name = "group-9-assignment1-vault"
     log_analytics_workspace_name = "group-9-assignmnet1-loganalytics-workspace"
-    storage_account_name = "group-9-assignment1-storage_acc"
-    storage_container_name = "group-9-assignment1-storage_container"
+    storage_account_name = "group-9-assignment1-storage-acc"
+    storage_container_name = "group-9-assignment1-storage-container"
     storage_blob_name = "group-9-assignment1-blob"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
@@ -94,8 +94,8 @@ module "common" {
 
 module "database" {
     source = "./modules/database"
-    db_server_name = "group-9-assignment1-postgre_server"
-    db_name = "group-9-assignment1-postgre_server_db"
+    db_server_name = "group-9-assignment1-postgre-server"
+    db_name = "group-9-assignment1-postgre_server-db"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags

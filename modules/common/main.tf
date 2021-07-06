@@ -19,7 +19,7 @@ resource "azurerm_log_analytics_workspace" "assignment1-workspace" {
 }
 
 
-resource "azurerm_storage_account" "assignment1-storage-account" {
+resource "azurerm_storage_account" "assignment1-sto-acc" {
   name                     = var.storage_account_name
   resource_group_name      = var.rg_name
   location                 = var.location
@@ -29,13 +29,13 @@ resource "azurerm_storage_account" "assignment1-storage-account" {
   tags = var.tags
 }
 
-resource "azurerm_storage_container" "assignment1-storage-container" {
+resource "azurerm_storage_container" "assignment1-sto-con" {
   name                  = var.storage_container_name
   storage_account_name  = var.storage_account_name
   container_access_type = "private"
 }
 
-resource "azurerm_storage_blob" "assignment1-storage-blob" {
+resource "azurerm_storage_blob" "assignment1-sto-blo" {
   name                   = var.storage_blob_name
   storage_account_name   = var.storage_account_name
   storage_container_name = var.storage_container_name

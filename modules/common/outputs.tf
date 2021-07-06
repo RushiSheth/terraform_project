@@ -7,5 +7,5 @@ output "Log_analytics_workspace_name" {
 }
 
 output "storage_account_name" {
-  value = azurerm_storage_account.assignment1-storage-account.name
+  value = azurerm_storage_account.assignment1-sto-acc.name
 }
