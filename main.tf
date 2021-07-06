@@ -51,7 +51,10 @@ module "rgroup" {
 
 module "datadisk" {
     source = "./modules/datadisk"
+    location = "canadacentral"
+    rg_name = "group-9-assignment1-rg"
     linux_ids = module.vmlinux.linux_VM_Id
+    windows_id = module.vmwindows.Windows_VM_Id
     tags = local.common_tags
     depends_on =[
       module.rgroup,
