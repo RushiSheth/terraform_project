@@ -67,6 +67,9 @@ module "loadbalancer" {
     rg_name = module.rgroup.rg_name
     public_ip_address_ids = module.vmlinux.linux_Public_IP
     tags = local.common_tags
+    depends_on = [
+        module.rgroup
+    ]
     
 }
 
@@ -80,6 +83,9 @@ module "common" {
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags
+    depends_on = [
+        module.rgroup
+    ]
     
 }
 
@@ -90,5 +96,8 @@ module "database" {
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags
+    depends_on = [
+        module.rgroup
+    ]
     
 }
