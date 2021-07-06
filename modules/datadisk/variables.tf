@@ -10,9 +10,14 @@ variable "tags" {
 
 }
 
-variable "linux_ids" {
+variable "linux_vm1_id" {
   
 }
+
+variable "linux_vm2_id" {
+  
+}
+
 
 variable "windows_id" {
   

@@ -30,14 +30,14 @@ resource "azurerm_managed_disk" "assignment1-disk3" {
 
 resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk1" {
   managed_disk_id    = azurerm_managed_disk.assignment1-disk1.id
-  virtual_machine_id = var.linux_ids[0]
+  virtual_machine_id = var.linux_vm1_id
   lun                = "10"
   caching            = "ReadWrite"
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk2" {
   managed_disk_id    = azurerm_managed_disk.assignment1-disk2.id
-  virtual_machine_id = var.linux_ids[1]
+  virtual_machine_id = var.linux_vm2_id
   lun                = "10"
   caching            = "ReadWrite"
 }

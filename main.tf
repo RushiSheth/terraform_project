@@ -53,7 +53,8 @@ module "datadisk" {
     source = "./modules/datadisk"
     location = "canadacentral"
     rg_name = "group-9-assignment1-rg"
-    linux_ids = module.vmlinux.linux_VM_Id
+    linux_vm1_id = module.vmlinux.linux_vm1_id
+    linux_vm2_id = module.vmlinux.linux_vm2_id
     windows_id = module.vmwindows.Windows_VM_Id
     tags = local.common_tags
     depends_on =[
