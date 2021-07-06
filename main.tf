@@ -69,7 +69,7 @@ module "loadbalancer" {
     lb_name = "group-9-assignment1-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
-    public_ip_address_ids = module.vmlinux.linux_Public_IP
+    public_ip_address_ids = module.vmlinux.Ip_lb
     tags = local.common_tags
     depends_on = [
         module.rgroup
