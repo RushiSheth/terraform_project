@@ -79,10 +79,10 @@ module "loadbalancer" {
 module "common" {
     source = "./modules/common"
     recovery_service_vault_name = "group-9-assignment1-vault"
-    log_analytics_workspace_name = "group-9-assignmnet1-loganalytics-workspace"
-    storage_account_name = "group-9-assignment1-storage-acc"
-    storage_container_name = "group-9-assignment1-storage-container"
-    storage_blob_name = "group-9-assignment1-blob"
+    log_analytics_workspace_name = "group-9-assignmnent1-loganalytics-workspace"
+    storage_account_name = "group-9-assign1-sto-ac"
+    storage_container_name = "group-9-assign1-con"
+    storage_blob_name = "group-9-assign1-blob"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags
