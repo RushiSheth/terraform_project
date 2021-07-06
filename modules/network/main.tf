@@ -13,8 +13,6 @@ resource "azurerm_subnet" "assignment1-subnet" {
   resource_group_name  = var.rg_name
   virtual_network_name = azurerm_virtual_network.assignment1-vnet.name
   address_prefixes     = var.subnet_add_space
-
-  tags = var.tags
 }
 
 resource "azurerm_network_security_group" "assignment1-nsg" {

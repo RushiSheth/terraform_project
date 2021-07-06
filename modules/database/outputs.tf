@@ -1,7 +1,7 @@
 output "Db_Server_Name" {
-  value = azurerm_postgresql_server.assignment1-db_server
+  value = azurerm_postgresql_server.assignment-1-db_server.name
 }
 
 output "Db_Name" {
-  value = azurerm_postgresql_database.assignment1-db-postgre
+  value = azurerm_postgresql_database.assignment-1-db-postgre.name
 }
