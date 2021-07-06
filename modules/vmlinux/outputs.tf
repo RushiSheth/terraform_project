@@ -19,6 +19,6 @@ output "linux_Public_IP" {
 }
 
 output "Ip_lb" {
-    value = azurerm_public_ip.linux_pip[each.key].id
+    value = [azurerm_public_ip.linux_pip[*].id]
 }
 
