@@ -2,6 +2,10 @@ variable "lb_name" {
   
 }
 
+variable "public_ip_lb_name" {
+  
+}
+
 variable "nic_id_1" {
   
 }

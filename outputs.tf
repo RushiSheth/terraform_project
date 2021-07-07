@@ -35,6 +35,7 @@ output "linux_Public_IP" {
   value = module.vmlinux.linux_Public_IP
 }
 
+#windows output
 output "windows_VM_Hostname" {
   value = module.vmwindows.windows_VM_Hostname
 }
@@ -49,5 +50,32 @@ output "windows_Public_IP" {
 
 }
 
+#Data disk output
 
+output "Disk1" {
+  value = module.datadisk.DataDisk1-Name
+}
 
+output "Disk2" {
+  value = module.datadisk.DataDisk2-Name
+}
+
+output "Disk3" {
+  value = module.datadisk.DataDisk3-Name
+}
+
+# Database output
+
+output "Database_Server_Name" {
+  value = module.database.db_server_name
+}
+
+output "Database_Name" {
+  value = module.database.db_name
+}
+
+#loadbalancer output
+
+output "Loadbalancer_name" {
+  value = module.loadbalancer.load_balancer_name
+}

@@ -1,5 +1,5 @@
 resource "azurerm_managed_disk" "assignment1-disk1" {
-  name                 = "linuxvm-disk1"
+  name                 = var.linux_datadisk1_name
   location             = var.location
   resource_group_name  = var.rg_name
   storage_account_type = "Standard_LRS"
@@ -9,7 +9,7 @@ resource "azurerm_managed_disk" "assignment1-disk1" {
 }
 
 resource "azurerm_managed_disk" "assignment1-disk2" {
-  name                 = "linuxvm-disk2"
+  name                 = var.linux_datadisk2_name
   location             = var.location
   resource_group_name  = var.rg_name
   storage_account_type = "Standard_LRS"
@@ -19,7 +19,7 @@ resource "azurerm_managed_disk" "assignment1-disk2" {
 }
 
 resource "azurerm_managed_disk" "assignment1-disk3" {
-  name                 = "windowsvm-disk3"
+  name                 = var.win_datadisk3_name
   location             = var.location
   resource_group_name  = var.rg_name
   storage_account_type = "Standard_LRS"

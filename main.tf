@@ -53,6 +53,9 @@ module "datadisk" {
     source = "./modules/datadisk"
     location = "canadacentral"
     rg_name = "group-9-assignment1-rg"
+    linux_datadisk1_name = "group-9-assignment1-datadisk1-linux"
+    linux_datadisk2_name = "group-9-assignment1-datadisk2-linux"
+    win_datadisk3_name = "group-9-assignment1-datadisk3-win"
     linux_vm1_id = module.vmlinux.linux_vm1_id
     linux_vm2_id = module.vmlinux.linux_vm2_id
     windows_id = module.vmwindows.Windows_VM_Id
@@ -67,13 +70,15 @@ module "datadisk" {
 module "loadbalancer" {
     source = "./modules/loadbalancer"
     lb_name = "group-9-assignment1-lb"
+    public_ip_lb_name = "group-9-assignment1-publicip-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     nic_id_1 = module.vmlinux.nic_id_1
     nic_id_2 = module.vmlinux.nic_id_2
     tags = local.common_tags
     depends_on = [
-        module.rgroup
+        module.rgroup,
+        module.vmlinux
     ]
     
 }
@@ -83,13 +88,16 @@ module "common" {
     recovery_service_vault_name = "group-9-assignment1-vault"
     log_analytics_workspace_name = "group-9-assignmnent1-loganalytics-workspace"
     storage_account_name = "group9assign1stoac"
+    linux_vm1_id = module.vmlinux.linux_vm1_id
+    linux_vm2_id = module.vmlinux.linux_vm2_id
     storage_container_name = "group9assign1con"
     storage_blob_name = "group9assign1blob"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags
     depends_on = [
-        module.rgroup
+        module.rgroup,
+        module.vmlinux
     ]
     
 }

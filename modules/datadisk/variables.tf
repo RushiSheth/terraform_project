@@ -1,13 +1,13 @@
-variable "location" {
+variable "linux_datadisk1_name" {
   
 }
 
-variable "rg_name" {
+variable "linux_datadisk2_name" {
   
 }
 
-variable "tags" {
-
+variable "win_datadisk3_name" {
+  
 }
 
 variable "linux_vm1_id" {
@@ -18,7 +18,18 @@ variable "linux_vm2_id" {
   
 }
 
-
 variable "windows_id" {
   
+}
+
+variable "location" {
+  
+}
+
+variable "rg_name" {
+  
+}
+
+variable "tags" {
+
 }
