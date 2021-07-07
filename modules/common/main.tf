@@ -16,6 +16,27 @@ resource "azurerm_backup_policy_vm" "assignment1-backup-policy" {
     frequency = "Daily"
     time      = "23:00"
   }
+  retention_daily {
+    count = 10
+  }
+
+  retention_weekly {
+    count    = 42
+    weekdays = ["Sunday", "Wednesday", "Friday", "Saturday"]
+  }
+
+  retention_monthly {
+    count    = 7
+    weekdays = ["Sunday", "Wednesday"]
+    weeks    = ["First", "Last"]
+  }
+
+  retention_yearly {
+    count    = 77
+    weekdays = ["Sunday"]
+    weeks    = ["Last"]
+    months   = ["January"]
+  }
 }
 
 resource "azurerm_backup_protected_vm" "vm1" {
@@ -43,7 +64,7 @@ resource "azurerm_log_analytics_workspace" "assignment1-workspace" {
 
 resource "azurerm_log_analytics_linked_storage_account" "assignment1-linked-workspace-sto-acc" {
   data_source_type      = "customlogs"
-  resource_group_name   = azurerm_resource_group.rg_name
+  resource_group_name   = var.rg_name
   workspace_resource_id = azurerm_log_analytics_workspace.assignment1-workspace.id
   storage_account_ids   = [azurerm_storage_account.assignment1-sto-acc.id]
 }
@@ -55,8 +76,6 @@ resource "azurerm_storage_account" "assignment1-sto-acc" {
   location                 = var.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  account_kind = ""
-
   tags = var.tags
 }
 
