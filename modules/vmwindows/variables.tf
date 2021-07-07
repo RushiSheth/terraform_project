@@ -41,3 +41,7 @@ variable "tags" {
 
 variable "subnet_id" {
 }
+
+variable "extension_name" {
+  
+}

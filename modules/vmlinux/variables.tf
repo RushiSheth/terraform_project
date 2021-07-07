@@ -43,3 +43,11 @@ variable "tags" {
 variable "subnet_id"{
 
 }
+
+variable "recovery_vault_name"{
+
+}
+
+variable "backup_policy_id" {
+  
+}

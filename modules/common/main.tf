@@ -9,7 +9,7 @@ resource "azurerm_recovery_services_vault" "assignment1-vault" {
 }
 
 resource "azurerm_backup_policy_vm" "assignment1-backup-policy" {
-  name                = "tfex-recovery-vault-policy"
+  name                = "assignment-recovery-vault-policy"
   resource_group_name = var.rg_name
   recovery_vault_name = var.recovery_service_vault_name
   backup {
@@ -39,19 +39,7 @@ resource "azurerm_backup_policy_vm" "assignment1-backup-policy" {
   }
 }
 
-resource "azurerm_backup_protected_vm" "vm1" {
-  resource_group_name = var.rg_name
-  recovery_vault_name = var.recovery_service_vault_name
-  source_vm_id        = var.linux_vm1_id
-  backup_policy_id    = azurerm_backup_policy_vm.assignment1-backup-policy.id
-}
 
-resource "azurerm_backup_protected_vm" "vm2" {
-  resource_group_name = var.rg_name
-  recovery_vault_name = var.recovery_service_vault_name
-  source_vm_id        = var.linux_vm2_id
-  backup_policy_id    = azurerm_backup_policy_vm.assignment1-backup-policy.id
-}
 
 resource "azurerm_log_analytics_workspace" "assignment1-workspace" {
   name                = var.log_analytics_workspace_name
@@ -93,3 +81,22 @@ resource "azurerm_storage_account" "assignment1-sto-acc" {
 #   source                 = "some-local-file.zip"
 # }
 
+
+# resource "azurerm_virtual_machine_extension" "mmaagent" {
+#   name                 = "mmaagent"
+#   virtual_machine_id   = 
+#   publisher            = "Microsoft.EnterpriseCloud.Monitoring"
+#   type                 = "MicrosoftMonitoringAgent"
+#   type_handler_version = "1.0"
+#   auto_upgrade_minor_version = "true"
+#   settings = <<SETTINGS
+#     {
+#       "workspaceId": "${var.workspaceId}"
+#     }
+# SETTINGS
+#    protected_settings = <<PROTECTED_SETTINGS
+#    {
+#       "workspaceKey": "${var.workspaceKey}"
+#    }
+# PROTECTED_SETTINGS
+# }

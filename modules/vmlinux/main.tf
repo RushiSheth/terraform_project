@@ -71,3 +71,16 @@ resource "azurerm_public_ip" "linux_pip" {
   }
 }
 
+resource "azurerm_backup_protected_vm" "vm1" {
+  resource_group_name = var.rg_name
+  recovery_vault_name = var.recovery_vault_name
+  source_vm_id        = azurerm_linux_virtual_machine.linux_vm[0].id
+  backup_policy_id    = var.backup_policy_id
+}
+
+resource "azurerm_backup_protected_vm" "vm2" {
+  resource_group_name = var.rg_name
+  recovery_vault_name = var.recovery_vault_name
+  source_vm_id        = azurerm_linux_virtual_machine.linux_vm[0].id
+  backup_policy_id    = var.backup_policy_id
+}

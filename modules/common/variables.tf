@@ -18,14 +18,6 @@ variable "storage_blob_name" {
   
 }
 
-variable "linux_vm1_id" {
-  
-}
-
-variable "linux_vm2_id" {
-  
-}
-
 variable "location" {
 
 }
