@@ -25,3 +25,11 @@ variable "rg_name" {
 variable "tags" {
 
 }
+
+variable "ipconfig1" {
+
+}
+
+variable "ipconfig2" {
+    
+}

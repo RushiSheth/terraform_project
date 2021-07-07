@@ -41,12 +41,12 @@ resource "azurerm_lb_probe" "assignment1_lb_probe" {
 
 resource "azurerm_network_interface_backend_address_pool_association" "assignment1_add_pool_asso1" {
   network_interface_id    = var.nic_id_1
-  ip_configuration_name   = "config1"
+  ip_configuration_name   = var.ipconfig1
   backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1_add_pool.id
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "assignment1_add_pool_asso2" {
   network_interface_id    = var.nic_id_2
-  ip_configuration_name   = "config2"
+  ip_configuration_name   = var.ipconfig2
   backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1_add_pool.id
 }

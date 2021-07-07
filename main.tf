@@ -30,7 +30,7 @@ module "vmlinux" {
 
 module "vmwindows" {
     source = "./modules/vmwindows"
-    windows_name = "Group-9-Assignment1-win-vm-1"
+    windows_name = "Group-9-Assign1-win"
     windows_availability_set = "windows_avs"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
@@ -75,6 +75,8 @@ module "loadbalancer" {
     rg_name = module.rgroup.rg_name
     nic_id_1 = module.vmlinux.nic_id_1
     nic_id_2 = module.vmlinux.nic_id_2
+    ipconfig1 = module.vmlinux.ipconfig1
+    ipconfig2 = module.vmlinux.ipconfig2
     tags = local.common_tags
     depends_on = [
         module.rgroup,
