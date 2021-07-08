@@ -23,6 +23,7 @@ module "vmlinux" {
     subnet_id = module.network.subnet_id
     recovery_vault_name = module.common.recovery_vault_name
     backup_policy_id = module.common.backup_policy_id
+    storage_account_uri = module.common.storage_account_uri
     tags = local.common_tags
     depends_on =[
       module.rgroup,

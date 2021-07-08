@@ -36,6 +36,10 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
     sku       = var.linux_os_disk_info.os_sku
     version   = var.linux_os_disk_info.os_version
   }
+
+  boot_diagnostics {
+    storage_account_uri = var.storage_account_uri
+  }
   tags = var.tags
   lifecycle {
   }
