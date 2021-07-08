@@ -80,6 +80,9 @@ resource "azurerm_backup_protected_vm" "vm1" {
   recovery_vault_name = var.recovery_vault_name
   source_vm_id        = azurerm_linux_virtual_machine.linux_vm[0].id
   backup_policy_id    = var.backup_policy_id
+  depends_on = [
+      azurerm_linux_virtual_machine.linux_vm
+  ]
 }
 
 resource "azurerm_backup_protected_vm" "vm2" {
@@ -87,4 +90,7 @@ resource "azurerm_backup_protected_vm" "vm2" {
   recovery_vault_name = var.recovery_vault_name
   source_vm_id        = azurerm_linux_virtual_machine.linux_vm[0].id
   backup_policy_id    = var.backup_policy_id
+  depends_on = [
+      azurerm_linux_virtual_machine.linux_vm
+  ]
 }

@@ -91,6 +91,9 @@ resource "azurerm_virtual_machine_extension" "windows_extension" {
     }
 SETTINGS
 
+   depends_on = [
+      azurerm_windows_virtual_machine.windows_vm
+  ]
 
   tags = var.tags
 }

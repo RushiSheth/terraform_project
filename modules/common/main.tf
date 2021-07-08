@@ -37,6 +37,9 @@ resource "azurerm_backup_policy_vm" "assignment1-backup-policy" {
     weeks    = ["Last"]
     months   = ["January"]
   }
+  depends_on = [
+    azurerm_recovery_services_vault.assignment1-vault
+  ]
 }
 
 
@@ -55,6 +58,10 @@ resource "azurerm_log_analytics_linked_storage_account" "assignment1-linked-work
   resource_group_name   = var.rg_name
   workspace_resource_id = azurerm_log_analytics_workspace.assignment1-workspace.id
   storage_account_ids   = [azurerm_storage_account.assignment1-sto-acc.id]
+  depends_on = [
+    azurerm_log_analytics_workspace.assignment1-workspace
+    azurerm_storage_account.assignment1-sto-acc
+  ]
 }
 
 
