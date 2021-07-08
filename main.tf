@@ -34,7 +34,7 @@ module "vmlinux" {
 
 module "vmwindows" {
     source = "./modules/vmwindows"
-    windows_name = "Group-9-Assign1-win"
+    windows_name = "Group-9-winvm"
     windows_availability_set = "windows_avs"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name

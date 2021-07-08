@@ -13,5 +13,5 @@ output "windows_Public_IP" {
 }
 
 output "Windows_VM_Id" {
-  value = [azurerm_linux_virtual_machine.windows_vm.id]
+  value = azurerm_windows_virtual_machine.windows_vm.id
 }
