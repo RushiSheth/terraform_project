@@ -33,9 +33,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk
   virtual_machine_id = var.linux_vm1_id
   lun                = "10"
   caching            = "ReadWrite"
-  depends_on = [
-      azurerm_managed_disk.assignment1-disk1
-  ]
+  
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk2" {
@@ -43,9 +41,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk
   virtual_machine_id = var.linux_vm2_id
   lun                = "10"
   caching            = "ReadWrite"
-  depends_on = [
-      azurerm_managed_disk.assignment1-disk2
-  ]
+
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk3" {
@@ -53,7 +49,5 @@ resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-disk
   virtual_machine_id = var.windows_id
   lun                = "10"
   caching            = "ReadWrite"
-  depends_on = [
-      azurerm_managed_disk.assignment1-disk3
-  ]
+  
 }
