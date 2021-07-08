@@ -26,11 +26,11 @@ output "nic_id_2" {
 }
 
 output "ipconfig1"{
-  value = azurerm_linux_virtual_machine.linux_vm[1].ip_configuration.name
+  value = azurerm_network_interface.linux_nic[0].ip_configuration.name
 }
 
 output "ipconfig2"{
-  value = azurerm_linux_virtual_machine.linux_vm[3].ip_configuration.name
+  value = azurerm_network_interface.linux_nic[1].ip_configuration.name
 }
 
 

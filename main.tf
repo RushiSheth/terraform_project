@@ -100,7 +100,7 @@ module "common" {
     tags = local.common_tags
     depends_on = [
         module.rgroup,
-        module.vmlinux
+
     ]
     
 }

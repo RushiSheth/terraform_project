@@ -65,9 +65,7 @@ resource "azurerm_public_ip" "windows_pip" {
 }
 
 resource "azurerm_virtual_machine_extension" "windows_extension" {
-  name                 = "ANTIMALWARE_EXTENSION"
-  location = var.location
-  resource_group_name = var.rg_name
+  name                 = "antimalware_extension"
   virtual_machine_id   = azurerm_windows_virtual_machine.windows_vm.id
   publisher = "Microsoft.Azure.Security"
   type = "IaaSAntimalware"

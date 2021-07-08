@@ -1,4 +1,4 @@
-output "Service_vault_name" {
+output "recovery_vault_name" {
   value = azurerm_recovery_services_vault.assignment1-vault.name
 }
 
