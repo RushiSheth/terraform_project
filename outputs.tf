@@ -79,3 +79,17 @@ output "Database_Name" {
 output "Loadbalancer_name" {
   value = module.loadbalancer.load_balancer_name
 }
+
+# common output 
+
+output "recovery_vault_name" {
+  value = module.common.recovery_vault_name
+}
+
+output "log_analytics_workspace" {
+  value = module.common.log_analytics_workspace_name
+}
+
+output "storage_account_name" {
+value = module.common.storage_account_name
+}

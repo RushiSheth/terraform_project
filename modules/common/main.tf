@@ -3,7 +3,7 @@ resource "azurerm_recovery_services_vault" "assignment1-vault" {
   location            = var.location
   resource_group_name = var.rg_name
   sku                 = "Standard"
-  soft_delete_enabled = true
+  soft_delete_enabled = false
 
   tags = var.tags
 }

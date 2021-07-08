@@ -73,7 +73,7 @@ resource "azurerm_virtual_machine_extension" "windows_extension" {
   auto_upgrade_minor_version = "true"
   settings = <<SETTINGS
     {
-        AntimalwareEnabled": true,
+        "AntimalwareEnabled": true,
         "RealtimeProtectionEnabled": "true",
         "ScheduledScanSettings": 
         {
