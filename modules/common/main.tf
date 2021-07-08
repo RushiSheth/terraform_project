@@ -59,8 +59,8 @@ resource "azurerm_log_analytics_linked_storage_account" "assignment1-linked-work
   workspace_resource_id = azurerm_log_analytics_workspace.assignment1-workspace.id
   storage_account_ids   = [azurerm_storage_account.assignment1-sto-acc.id]
   depends_on = [
-    azurerm_log_analytics_workspace.assignment1-workspace
-    azurerm_storage_account.assignment1-sto-acc
+    azurerm_log_analytics_workspace.assignment1-workspace,
+    azurerm_storage_account.assignmnent1-sto-acc
   ]
 }
 
