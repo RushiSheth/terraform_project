@@ -53,14 +53,6 @@ variable "subnet_id"{
 
 }
 
-variable "recovery_vault_name"{
-
-}
-
-variable "backup_policy_id" {
-
-}
-
 variable "storage_account_uri" {
   
 }

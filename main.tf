@@ -25,8 +25,6 @@ module "vmlinux" {
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     subnet_id = module.network.subnet_id
-    recovery_vault_name = module.common.recovery_vault_name
-    backup_policy_id = module.common.backup_policy_id
     storage_account_uri = module.common.storage_account_uri
     tags = local.common_tags
     depends_on =[
@@ -87,8 +85,8 @@ module "loadbalancer" {
     windows_nic = module.vmwindows.Windows_vm_nic
     tags = local.common_tags
     depends_on = [
-        module.rgroup,
-        module.vmlinux
+        module.vmlinux,
+        module.vmwindows
     ]
     
 }
@@ -117,7 +115,7 @@ module "database" {
     rg_name = module.rgroup.rg_name
     tags = local.common_tags
     depends_on = [
-        module.rgroup
+        module.loadbalancer
     ]
     
 }
