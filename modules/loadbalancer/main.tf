@@ -13,7 +13,6 @@ resource "azurerm_lb" "assignment1_lb" {
   frontend_ip_configuration {
     name                 = "group9_lb_assignment"
     public_ip_address_id = azurerm_public_ip.assignment1_pip.id
-    subnet_id = var.subnet_id
   }
 }
 
