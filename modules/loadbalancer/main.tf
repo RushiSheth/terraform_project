@@ -11,7 +11,7 @@ resource "azurerm_lb" "assignment1_lb" {
   resource_group_name = var.rg_name
 
   frontend_ip_configuration {
-    name                 = "PublicIPAddress"
+    name                 = "group9_lb_assignment"
     public_ip_address_id = azurerm_public_ip.assignment1_pip.id
   }
 }
@@ -41,7 +41,7 @@ resource "azurerm_lb_rule" "assignment1_lb_rule" {
   protocol                       = "Tcp"
   frontend_port                  = 22
   backend_port                   = 22
-  frontend_ip_configuration_name = "PublicIPAddress"
+  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration[0].name
 }
 
 

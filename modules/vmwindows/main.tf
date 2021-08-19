@@ -65,6 +65,7 @@ resource "azurerm_public_ip" "windows_pip" {
   location            = var.location
   allocation_method   = "Static"
   tags                = var.tags
+  domain_name_label   = var.windows_name
   lifecycle {
     
   }

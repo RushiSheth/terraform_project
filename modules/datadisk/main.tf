@@ -38,7 +38,7 @@ resource "azurerm_managed_disk" "assignment1-disk-linux" {
 resource "azurerm_virtual_machine_data_disk_attachment" "assignment1-attach-linux" {
   count = length(var.linux_name)
   virtual_machine_id = element(var.linux_id[*], count.index)
-  managed_disk_id    = element(azurerm_managed_disk.ssignment1-disk-linux[*].id, count.index + 1)
+  managed_disk_id    = element(azurerm_managed_disk.assignment1-disk-linux[*].id, count.index + 1)
   lun                = 0
   caching            = "ReadWrite"
   depends_on = [

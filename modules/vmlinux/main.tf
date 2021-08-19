@@ -11,6 +11,7 @@ resource "azurerm_public_ip" "linux_pip" {
   location            = var.location
   allocation_method   = "Static"
   tags                = var.tags
+  domain_name_label   = each.key
 }
 
 resource "azurerm_network_interface" "linux_nic" {
@@ -32,7 +33,6 @@ resource "azurerm_network_interface" "linux_nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "linux_vm" {
-  vm_name             = each.key
   for_each            = var.linux_name
   name                = each.key
   computer_name       = each.key
