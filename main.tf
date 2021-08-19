@@ -30,7 +30,6 @@ module "vmlinux" {
     depends_on =[
       module.rgroup,
       module.network,
-      module.common
     ]
 }
 
@@ -96,8 +95,6 @@ module "common" {
     recovery_service_vault_name = "group-9-assignment1-vault"
     log_analytics_workspace_name = "group-9-assignmnent1-loganalytics-workspace"
     storage_account_name = "group9assign1stoac"
-    storage_container_name = "group9assign1con"
-    storage_blob_name = "group9assign1blob"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     tags = local.common_tags

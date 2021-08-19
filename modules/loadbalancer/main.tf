@@ -24,7 +24,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "assignmen
   count                   = length(var.linux_nic)
   ip_configuration_name   = element(var.linux_nic[*].ip_configuration[0].name, count.index)
   network_interface_id    = element(var.linux_nic[*].id, count.index)
-  backend_address_pool_id = azurerm_lb_backend_address_pool.lb_backend_pool.id
+  backend_address_pool_id = azurerm_lb_backend_address_pool.assignment1_backend_pool.id
 }
 
 resource "azurerm_lb_probe" "assignment1_lb_probe" {

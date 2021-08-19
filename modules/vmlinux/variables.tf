@@ -2,8 +2,7 @@ variable "linux_name" {
   type    = map(string)
   default = {}
 }
-variable "vm_name" {
-}
+
 variable "vm_admin_user"{
     default = "auto"
 }

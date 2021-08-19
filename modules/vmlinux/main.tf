@@ -24,14 +24,15 @@ resource "azurerm_network_interface" "linux_nic" {
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.linux_pip[each.key].id
-  tags = var.tags
+ }
+ tags         = var.tags
   depends_on = [
     azurerm_public_ip.linux_pip
   ]
 }
-}
 
 resource "azurerm_linux_virtual_machine" "linux_vm" {
+  vm_name             = each.key
   for_each            = var.linux_name
   name                = each.key
   computer_name       = each.key
@@ -39,7 +40,7 @@ resource "azurerm_linux_virtual_machine" "linux_vm" {
   location            = var.location
   size                = var.linux_vm_size
   admin_username      = var.vm_admin_user
-  network_interface_ids = [azurerm_network_interface.nic_linux[each.key].id]
+  network_interface_ids = [azurerm_network_interface.linux_nic[each.key].id]
   allow_extension_operations = true
 
   admin_ssh_key {
