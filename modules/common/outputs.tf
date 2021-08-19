@@ -10,10 +10,6 @@ output "storage_account_name" {
   value = azurerm_storage_account.assignment1-sto-acc.name
 }
 
-output "backup_policy_id" {
-  value = azurerm_backup_policy_vm.assignment1-backup-policy.id
-}
-
 output "storage_account_uri" {
   value = azurerm_storage_account.assignment1-sto-acc.primary_blob_endpoint
 }

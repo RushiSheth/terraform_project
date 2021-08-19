@@ -15,9 +15,13 @@ module "network" {
 
 module "vmlinux" {
     source = "./modules/vmlinux"
-    vm_name = "Group-9-Assignment1-linux"
+    # vm_name = "Group-9-Assignment1-linux"
     linux_availability_set = "linux_avs"
-    nb_count = 2
+    linux_name = {
+    "Group-9-linux1" = "Standard_B1s"
+    "Group-9-linux2" = "Standard_B1s"
+  }
+    # nb_count = 2
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     subnet_id = module.network.subnet_id
@@ -39,6 +43,7 @@ module "vmwindows" {
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
     subnet_id = module.network.subnet_id
+    storage_account_uri = module.common.storage_account_uri
     tags = local.common_tags
     depends_on =[
       module.rgroup,
@@ -55,17 +60,18 @@ module "rgroup" {
 
 module "datadisk" {
     source = "./modules/datadisk"
-    location = "canadacentral"
+    location = module.rgroup.location_name
     rg_name = "group-9-assignment1-rg"
-    linux_datadisk1_name = "group-9-assignment1-datadisk1-linux"
-    linux_datadisk2_name = "group-9-assignment1-datadisk2-linux"
+    linux_name = module.vmlinux.linux_vm_hostname
+    linux_id   = module.vmlinux.linux_vm_id
+    # linux_datadisk1_name = "group-9-assignment1-datadisk1-linux"
+    # linux_datadisk2_name = "group-9-assignment1-datadisk2-linux"
     win_datadisk3_name = "group-9-assignment1-datadisk3-win"
-    linux_vm1_id = module.vmlinux.linux_vm1_id
-    linux_vm2_id = module.vmlinux.linux_vm2_id
+    # linux_vm1_id = module.vmlinux.linux_vm_id
+    # linux_vm2_id = module.vmlinux.linux_vm2_id
     windows_id = module.vmwindows.Windows_VM_Id
     tags = local.common_tags
     depends_on =[
-      module.rgroup,
       module.vmwindows,
       module.vmlinux
     ]
@@ -77,10 +83,8 @@ module "loadbalancer" {
     public_ip_lb_name = "group-9-assignment1-publicip-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
-    nic_id_1 = module.vmlinux.nic_id_1
-    nic_id_2 = module.vmlinux.nic_id_2
-    ipconfig1 = module.vmlinux.ipconfig1
-    ipconfig2 = module.vmlinux.ipconfig2
+    linux_nic   = module.vmlinux.linux_nic
+    windows_nic = module.vmwindows.Windows_vm_nic
     tags = local.common_tags
     depends_on = [
         module.rgroup,

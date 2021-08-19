@@ -1,23 +1,19 @@
 resource "null_resource" "linux_provisioner" {
-    count = var.nb_count
-    depends_on = [
-        azurerm_linux_virtual_machine.linux_vm,
-        azurerm_network_interface.linux_nic
+  for_each = var.linux_name
+  depends_on = [
+    azurerm_linux_virtual_machine.linux_vm
+  ]
+
+  provisioner "remote-exec" {
+    inline = [
+      "hostname"
     ]
-    triggers = {
-        network_interface_ids = join(",", azurerm_network_interface.linux_nic[*].id)
+
+    connection {
+      type        = "ssh"
+      host        = azurerm_linux_virtual_machine.linux_vm[each.key].public_ip_address
+      user        = var.vm_admin_user
+      private_key = file(var.linux_admin_ssh_key.private_key)
     }
-
-    provisioner "local-exec" {
-        command ="sleep 5 ; cat /etc/hosts"
-
-        connection {
-    type     = "ssh"
-    user     = var.vm_admin_user
-    private_key = file(var.public_key_path)
-    host     = "${element(azurerm_linux_virtual_machine.linux_vm[*].computer_name, 0)}"
   }
-    
-    }
-  
 }

@@ -14,9 +14,9 @@ provider "azurerm" {
 
 locals {
   common_tags = {
-    Name         = "Terraform Group-9 Project "
+    Name         = "Terraform-Ansible Group-9 Project "
     GroupMembers = "Rushi-Kunj"
-    ExpirationDate = "2021-07-31"
+    ExpirationDate = "2021-08-19"
     Environment  = "Lab"
   }
 }

@@ -16,6 +16,12 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
   network_interface_ids = [
     azurerm_network_interface.windows_nic.id
   ]
+  winrm_listener {
+  protocol = "Http"
+}
+boot_diagnostics {
+    storage_account_uri = var.storage_account_uri
+  }
 
   
 

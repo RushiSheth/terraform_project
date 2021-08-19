@@ -23,8 +23,8 @@ output "subnet_add_space" {
 }
 
 
-output "linux_VM_Hostname" {
-  value = module.vmlinux.linux_VM_Hostname
+output "linux_vm_hostname" {
+  value = module.vmlinux.linux_vm_hostname
 }
 
 output "linux_Private_IP" {
@@ -48,20 +48,6 @@ output "windows_Private_IP" {
 output "windows_Public_IP" {
   value = module.vmwindows.windows_Public_IP
 
-}
-
-#Data disk output
-
-output "Disk1" {
-  value = module.datadisk.DataDisk1-Name
-}
-
-output "Disk2" {
-  value = module.datadisk.DataDisk2-Name
-}
-
-output "Disk3" {
-  value = module.datadisk.DataDisk3-Name
 }
 
 # Database output

@@ -42,3 +42,6 @@ variable "tags" {
 variable "subnet_id" {
 }
 
+variable "storage_account_uri" {
+  
+}

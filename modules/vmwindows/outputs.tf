@@ -15,3 +15,7 @@ output "windows_Public_IP" {
 output "Windows_VM_Id" {
   value = azurerm_windows_virtual_machine.windows_vm.id
 }
+
+output "Windows_vm_nic" {
+  value = azurerm_network_interface.windows_nic
+}

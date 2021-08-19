@@ -6,11 +6,11 @@ variable "public_ip_lb_name" {
   
 }
 
-variable "nic_id_1" {
+variable "linux_nic" {
   
 }
 
-variable "nic_id_2" {
+variable "windows_nic" {
   
 }
 
@@ -26,10 +26,3 @@ variable "tags" {
 
 }
 
-variable "ipconfig1" {
-
-}
-
-variable "ipconfig2" {
-    
-}

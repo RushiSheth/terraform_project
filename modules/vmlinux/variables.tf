@@ -1,3 +1,7 @@
+variable "linux_name" {
+  type    = map(string)
+  default = {}
+}
 variable "vm_name" {
 }
 variable "vm_admin_user"{
@@ -5,8 +9,8 @@ variable "vm_admin_user"{
 }
 variable "linux_availability_set"{
 }
-variable "nb_count"{
-}
+# variable "nb_count"{
+# }
 variable "location"{
 }
 variable "rg_name"{
@@ -15,8 +19,13 @@ variable "linux_vm_size" {
   default = "Standard_B1s"
 }
 
-variable "public_key_path" {
-  default = "/home/auto/.ssh/id_rsa.pub"
+variable "linux_admin_ssh_key" {
+  type = map(string)
+  default = {
+    username   = "auto"
+    public_key = "/home/auto/.ssh/id_rsa.pub"
+    private_key = "/home/auto/.ssh/id_rsa"
+  }
 }
 variable "linux_os_disk_attr" {
   type = map(string)
