@@ -80,6 +80,7 @@ module "loadbalancer" {
     public_ip_lb_name = "group-9-assignment1-publicip-lb"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
+    subnet_id = module.network.subnet_id
     linux_nic   = module.vmlinux.linux_nic
     windows_nic = module.vmwindows.Windows_vm_nic
     tags = local.common_tags
