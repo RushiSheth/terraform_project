@@ -41,7 +41,7 @@ resource "azurerm_lb_rule" "assignment1_lb_rule" {
   protocol                       = "Tcp"
   frontend_port                  = 22
   backend_port                   = 22
-  frontend_ip_configuration_name = azurerm_lb.lb.frontend_ip_configuration[0].name
+  frontend_ip_configuration_name = azurerm_lb.assignment1_lb.frontend_ip_configuration[0].name
 }
 
 

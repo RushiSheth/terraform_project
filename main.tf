@@ -18,8 +18,8 @@ module "vmlinux" {
     # vm_name = "Group-9-Assignment1-linux"
     linux_availability_set = "linux_avs"
     linux_name = {
-    "Group-9-linux1" = "Standard_B1s"
-    "Group-9-linux2" = "Standard_B1s"
+    "group-9-linux1" = "Standard_B1s"
+    "group-9-linux2" = "Standard_B1s"
   }
     # nb_count = 2
     location = module.rgroup.location_name
@@ -35,7 +35,7 @@ module "vmlinux" {
 
 module "vmwindows" {
     source = "./modules/vmwindows"
-    windows_name = "Group-9-winvm"
+    windows_name = "group-9-winvm"
     windows_availability_set = "windows_avs"
     location = module.rgroup.location_name
     rg_name = module.rgroup.rg_name
